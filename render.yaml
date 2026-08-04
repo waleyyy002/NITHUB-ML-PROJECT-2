@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: sentiment-analysis-api
+    runtime: docker
+    plan: free
