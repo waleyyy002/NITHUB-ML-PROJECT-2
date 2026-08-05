@@ -1,9 +1,6 @@
-fastapi
+﻿fastapi
 uvicorn
-transformers
-torch
-huggingface_hub
+vaderSentiment
 pydantic
 python-multipart
 numpy
-scipy

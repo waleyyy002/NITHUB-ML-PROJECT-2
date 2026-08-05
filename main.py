@@ -7,7 +7,7 @@ from utils import health_status
 app = FastAPI(
     title="Sentiment Analysis API",
     version="1.0",
-    description="Sentiment Analysis using Hugging Face Transformers"
+    description="Sentiment Analysis API"
 )
 
 

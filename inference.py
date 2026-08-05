@@ -1,38 +1,26 @@
-import torch
-from scipy.special import softmax
+﻿from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
-from model_loader import tokenizer, model
-
-labels = ["Negative", "Positive"]
+analyzer = SentimentIntensityAnalyzer()
 
 
 def predict_sentiment(text: str):
+    scores = analyzer.polarity_scores(text)
+    compound = scores["compound"]
 
-    encoded_input = tokenizer(
-        text,
-        return_tensors="pt",
-        truncation=True,
-        padding=True,
-        max_length=512
-    )
-
-    with torch.no_grad():
-        output = model(**encoded_input)
-
-    scores = output.logits[0].numpy()
-    scores = softmax(scores)
-
-    prediction = labels[scores.argmax()]
-
-    confidence = float(scores.max())
-
-    top3 = {
-        labels[i]: float(scores[i])
-        for i in range(len(labels))
-    }
+    if compound >= 0.05:
+        prediction = "Positive"
+    elif compound <= -0.05:
+        prediction = "Negative"
+    else:
+        prediction = "Neutral"
 
     return {
         "sentiment": prediction,
-        "confidence": round(confidence, 4),
-        "scores": top3
+        "confidence": round(abs(compound), 4),
+        "scores": {
+            "negative": scores["neg"],
+            "neutral": scores["neu"],
+            "positive": scores["pos"],
+            "compound": compound,
+        },
     }
