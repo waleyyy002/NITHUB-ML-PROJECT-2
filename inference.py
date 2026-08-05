@@ -1,7 +1,7 @@
 import torch
 from scipy.special import softmax
 
-from app.model_loader import tokenizer, model
+from model_loader import tokenizer, model
 
 labels = ["Negative", "Neutral", "Positive"]
 

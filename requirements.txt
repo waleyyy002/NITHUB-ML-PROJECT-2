@@ -6,3 +6,4 @@ huggingface_hub
 pydantic
 python-multipart
 numpy
+scipy

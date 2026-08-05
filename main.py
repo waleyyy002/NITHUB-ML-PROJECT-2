@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException
 
-from app.schemas import TextRequest, BatchRequest
-from app.inference import predict_sentiment
-from app.utils import health_status
+from schemas import TextRequest, BatchRequest
+from inference import predict_sentiment
+from utils import health_status
 
 app = FastAPI(
     title="Sentiment Analysis API",
