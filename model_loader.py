@@ -2,8 +2,8 @@ import os
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-MODEL_NAME = "cardiffnlp/twitter-roberta-base-sentiment-latest"
-LOCAL_MODEL_DIR = "twitter-roberta-base-sentiment-latest"
+MODEL_NAME = "distilbert-base-uncased-finetuned-sst-2-english"
+LOCAL_MODEL_DIR = "distilbert-base-uncased-finetuned-sst-2-english"
 HF_TOKEN = os.environ.get("HF_TOKEN")
 
 use_local = os.path.isdir(LOCAL_MODEL_DIR)

@@ -3,7 +3,7 @@ from scipy.special import softmax
 
 from model_loader import tokenizer, model
 
-labels = ["Negative", "Neutral", "Positive"]
+labels = ["Negative", "Positive"]
 
 
 def predict_sentiment(text: str):

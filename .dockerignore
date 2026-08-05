@@ -1,0 +1,9 @@
+twitter-roberta-base-sentiment-latest/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.env
+.env.*
+.DS_Store
