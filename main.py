@@ -1,4 +1,8 @@
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 
 from schemas import TextRequest, BatchRequest
 from inference import predict_sentiment
@@ -10,13 +14,13 @@ app = FastAPI(
     description="Sentiment Analysis API"
 )
 
+frontend_dir = Path(__file__).resolve().parent / "frontend"
+app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
 
-@app.get("/")
+
+@app.get("/", response_class=HTMLResponse)
 def root():
-
-    return {
-        "message": "Welcome to Sentiment Analysis API"
-    }
+    return FileResponse(frontend_dir / "index.html")
 
 
 @app.get("/health")

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentiment Analysis UI</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <h1>Sentiment Analysis</h1>
+        <p>Analyze text sentiment in seconds with a clean, modern UI.</p>
+      </div>
+      <div class="hero-badge">Powered by your API</div>
+    </header>
+
+    <main class="card">
+      <section class="section">
+        <label for="text-input">Enter text to analyze</label>
+        <textarea id="text-input" placeholder="Type something positive, negative, or neutral..." rows="6"></textarea>
+      </section>
+
+      <section class="section actions">
+        <button id="predict-button" type="button">Predict Sentiment</button>
+        <div id="status" class="status">Ready to analyze.</div>
+      </section>
+
+      <section id="result" class="section result hidden">
+        <h2>Prediction</h2>
+        <div class="result-grid">
+          <div class="result-box">
+            <span class="label">Sentiment</span>
+            <strong id="sentiment-value">-</strong>
+          </div>
+          <div class="result-box">
+            <span class="label">Confidence</span>
+            <strong id="confidence-value">-</strong>
+          </div>
+        </div>
+
+        <div class="scores-card">
+          <h3>Scores</h3>
+          <ul class="score-list">
+            <li><span>Positive</span><strong id="score-positive">-</strong></li>
+            <li><span>Neutral</span><strong id="score-neutral">-</strong></li>
+            <li><span>Negative</span><strong id="score-negative">-</strong></li>
+            <li><span>Compound</span><strong id="score-compound">-</strong></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Use the API directly at <code>/predict</code> or explore the UI here.</p>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
